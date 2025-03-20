@@ -109,3 +109,15 @@ export const Typo_heading_05_bold = {
     fontWeight: '700',
     lineHeight: '4rem',
 }
+
+export const Typo_heading_06_bold = {
+    fontSize: '3.6rem',
+    fontWeight: '700',
+    lineHeight: '4rem',
+}
+
+export const Typo_heading_07_bold = {
+    fontSize: '4.8rem',
+    fontWeight: '700',
+    lineHeight: '4rem',
+}
