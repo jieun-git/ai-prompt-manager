@@ -1,5 +1,5 @@
 // layout
-// export { default as Layout } from './layout/Layout'
+export { default as Layout } from './layout/layout/Layout'
 // export { default as Sider } from './layout/sider'
 // export { default as Header } from './layout/header'
 // export { default as Content } from './layout/content'

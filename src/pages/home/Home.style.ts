@@ -3,7 +3,7 @@ import {Typo_heading_06_bold, Typo_heading_07_bold} from "../../styles/constants
 
 export const S_HomeWrapper = styled.div`
     width: 100%;
-    height: 600px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ export const S_HomeContent = styled.div`
     background-color: var(--background-z-default);
     padding: var(--spacing-08) var(--spacing-04);
     width: 72%;
-    height: 100%;
+    height: 60rem;
     border: .2rem solid var(--green-z-01);
     border-radius: var(--radius-02);
 `
