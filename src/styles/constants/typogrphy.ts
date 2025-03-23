@@ -103,6 +103,13 @@ export const Typo_label_02 = {
     lineHeight: '1.8rem',
     letterSpacing: '0.16px',
 }
+
+/* 레이아웃의 헤더로 사용됩니다 */
+export const Typo_heading_04_bold = {
+    fontSize: '2.8rem',
+    fontWeight: '700',
+    lineHeight: '3.6rem',
+}
 /* 레이아웃의 헤더로 사용됩니다 */
 export const Typo_heading_05_bold = {
     fontSize: '3.2rem',
