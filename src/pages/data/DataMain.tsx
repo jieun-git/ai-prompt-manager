@@ -1,8 +1,11 @@
 import React from 'react';
+import Layout from '../../components/layout/layout/Layout';
 
 const DataMain = () => {
     return (
-        <div style={{ color: 'white', fontSize: '4.8rem'}}>Data</div>
+        <Layout menuKey="data">
+            <div style={{color: 'white', fontSize: '4.8rem'}}>Data</div>
+        </Layout>
     )
 }
 

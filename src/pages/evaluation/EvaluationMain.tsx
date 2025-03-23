@@ -1,8 +1,11 @@
 import React from 'react';
+import Layout from '../../components/layout/layout/Layout';
 
 const EvaluationMain = () => {
     return (
-        <div style={{ color: 'white', fontSize: '4.8rem'}}>Evaluation</div>
+        <Layout menuKey="evaluation">
+            <div style={{color: 'white', fontSize: '4.8rem'}}>Evaluation</div>
+        </Layout>
     )
 }
 
