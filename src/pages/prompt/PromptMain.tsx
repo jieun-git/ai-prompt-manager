@@ -1,15 +1,29 @@
 import React from 'react';
-import Layout from '../../components/layout/layout/Layout';
+import { Tabs, Layout } from "../../components";
+import {TabsProps} from "antd";
+import CreatePrompt from "./CreatePrompt";
+
 import {
     FileTextOutlined,
-    LikeOutlined,
-    DatabaseOutlined,
 } from '@ant-design/icons';
 
 const PromptMain = () => {
+    const items: TabsProps['items'] = [
+        {
+            key: 'create',
+            label: 'Prompt 추가',
+            children: <CreatePrompt />,
+        },
+        {
+            key: 'update',
+            label: 'Prompt 조회/편집',
+            children: '조회',
+        },
+    ];
+
     return (
         <Layout menuKey="prompt" headerTitle={<span><FileTextOutlined /> 프롬프트 관리</span>}>
-            <div style={{color: 'white', fontSize: '4.8rem'}}>Prompt</div>
+            <Tabs defaultActiveKey="create" items={items} />
         </Layout>
     )
 }
