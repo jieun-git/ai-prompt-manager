@@ -6,10 +6,7 @@ import {
 } from '@ant-design/icons';
 import { LayoutProps as AntLayoutProps, MenuProps } from "antd";
 import S_Layout from "./Layout.style";
-import Sider from "../sider/Sider";
-import Content from "../content/Content";
-import Header from "../header/Header";
-import Menu from "../../navigation/menu";
+import {Sider, Content, Header, Menu} from "../../index";
 import {useNavigate} from "react-router-dom";
 
 type MenuItem = Required<MenuProps>['items'][number];
