@@ -9,7 +9,7 @@ export const Typo_body_01 = {
 /* heading-02와 함께 쓰입니다 */
 export const Typo_body_02 = {
     fontSize: '1.6rem',
-    fontWeight: '300',
+    fontWeight: '500',
     lineHeight: '2.4rem',
 }
 
@@ -24,7 +24,7 @@ export const Typo_heading_01 = {
 /* body-02과 함께 쓰입니다 */
 export const Typo_heading_02 = {
     fontSize: '1.6rem',
-    fontWeight: '500',
+    fontWeight: '700',
     lineHeight: '2.4rem',
 }
 
