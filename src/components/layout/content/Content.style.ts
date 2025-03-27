@@ -8,5 +8,6 @@ export const S_Content = styled(Layout.Content)`
     padding: var(--spacing-05);
     background: var(--background);
     color: black;
+    overflow: auto;
 `
 S_Content.displayName = 'S_Content'

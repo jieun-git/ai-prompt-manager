@@ -24,10 +24,18 @@ const S_Button = styled(Button)<ExtendButtonProps>`
     //         background: var(--button-primary-active);
     //     }
     // }
-    // &.ant-btn-text {
-    //     background: transparent;
-    //     color: var(--link-primary);
-    // }
+     &.ant-btn-text {
+         background: transparent;
+         color: var(--blue-z-03);
+     }
+    
+    &.ant-btn-variant-text:not(:disabled):not(.ant-btn-disabled):hover {
+        color: var(--yellow-z-01);
+    }
+    
+    &.ant-btn-variant-solid:not(:disabled):not(.ant-btn-disabled):hover {
+        background: var(--yellow-z-01);
+    }
     // &.ant-btn-link {
     //     background: transparent;
     //     color: var(--link-primary);
