@@ -1,6 +1,6 @@
 import {Form} from 'antd'
 import styled from 'styled-components'
-import {Typo_label_02} from "../../../styles/constants/typogrphy";
+import {Typo_heading_04_bold, Typo_label_02} from "../../../styles/constants/typogrphy";
 import {ExtendedFormItemProps} from "./Form";
 
 export const S_Form = styled(Form)`
@@ -23,3 +23,10 @@ export const S_FormItem = styled(Form.Item)<ExtendedFormItemProps>`
     }
 `
 S_FormItem.displayName = 'S_FormItem'
+
+export const S_FormTitle = styled.h1`
+    ${Typo_heading_04_bold};
+    color: var(--green-z-01);
+
+`
+S_FormTitle.displayName = 'S_FormTitle'
