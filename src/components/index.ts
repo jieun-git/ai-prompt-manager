@@ -26,6 +26,7 @@ export { default as Menu } from './navigation/menu/Menu'
 // export { default as Empty } from './dataDisplay/Empty'
 // export { default as Transfer } from './dataDisplay/Transfer'
 export { default as Tabs } from './data-display/tabs/Tabs'
+export { default as Tooltip } from './data-display/tooltip/Tooltip'
 // export { default as DatePicker } from './dataDisplay/DatePicker'
 
 // data entry
