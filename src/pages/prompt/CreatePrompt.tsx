@@ -8,6 +8,7 @@ const CreatePrompt = () => {
     return <S_FlexWrapper
         flexDirection="column"
         gap={16}
+        padding="16px"
     >
         <CreatePromptForm />
         <RunPromptForm />
