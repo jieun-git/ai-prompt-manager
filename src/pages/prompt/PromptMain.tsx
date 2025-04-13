@@ -2,6 +2,7 @@ import React from 'react';
 import { Tabs, Layout } from "../../components";
 import {TabsProps} from "antd";
 import CreatePrompt from "./CreatePrompt";
+import EditPrompt from "./EditPrompt";
 
 import {
     FileTextOutlined,
@@ -17,7 +18,7 @@ const PromptMain = () => {
         {
             key: 'update',
             label: 'Prompt 조회/편집',
-            children: '조회',
+            children: <EditPrompt />,
         },
     ];
 
