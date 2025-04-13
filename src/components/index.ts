@@ -26,15 +26,18 @@ export { default as Menu } from './navigation/menu/Menu'
 // export { default as Empty } from './dataDisplay/Empty'
 // export { default as Transfer } from './dataDisplay/Transfer'
 export { default as Tabs } from './data-display/tabs/Tabs'
+export { default as Table } from './data-display/table/Table'
 export { default as Tooltip } from './data-display/tooltip/Tooltip'
+export { default as Segmented } from './data-display/segmented/Segmented'
 // export { default as DatePicker } from './dataDisplay/DatePicker'
 
 // data entry
-// export { default as Checkbox, CheckboxGroup } from './data-entry/checkbox'
+export { default as Checkbox } from './data-entry/checkbox'
 export { default as Form } from './data-entry/form/Form'
 export { default as Input, TextArea, Search } from './data-entry/input/Input'
 // export { default as Radio } from './data-entry/Radio'
 export { default as Select } from './data-entry/select/Select'
+export { default as Switch } from './data-entry/switch/Switch'
 // export { default as AutoComplete } from './data-entry/autoComplete'
 
 // feedback

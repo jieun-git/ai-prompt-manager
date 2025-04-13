@@ -4,7 +4,7 @@ import S_Tabs from "./Tabs.style";
 
 const Tabs = ({...props}: TabsProps) => {
     return (
-        <S_Tabs {...props} {...props} />
+        <S_Tabs {...props} />
     )
 }
 
