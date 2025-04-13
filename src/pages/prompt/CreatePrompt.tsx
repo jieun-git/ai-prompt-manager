@@ -1,6 +1,6 @@
 import React from 'react'
-import CreatePromptForm from "./CreatePromptForm";
-import RunPromptForm from "./RunPromptForm";
+import CreatePromptForm from "./components/form/CreatePromptForm";
+import RunPromptForm from "./components/form/RunPromptForm";
 import {Button} from "../../components";
 import {S_FlexWrapper} from "../styles/Page.style";
 

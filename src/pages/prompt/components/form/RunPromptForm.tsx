@@ -1,13 +1,13 @@
 import React from 'react'
-import {Form, Button, TextArea, Tooltip} from "../../components";
-import {S_DisabledContent, S_FlexWrapper} from "../styles/Page.style";
+import {Form, Button, TextArea, Tooltip} from "../../../../components";
+import {S_DisabledContent, S_FlexWrapper} from "../../../styles/Page.style";
 import { ForwardOutlined } from '@ant-design/icons';
-import {S_FormTitle} from "../../components/data-entry/form/Form.style";
+import {S_FormTitle} from "../../../../components/data-entry/form/Form.style";
 
 const RunPromptForm = () => {
     return <div>
         <S_FormTitle>Test</S_FormTitle>
-        <S_DisabledContent disabled={true}>
+        <S_DisabledContent disabled={false}>
             <Form
                 layout="vertical"
             >
