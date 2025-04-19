@@ -16,6 +16,7 @@ const PromptSummaryTable = () => {
         {
             title: 'ver.',
             dataIndex: 'version',
+            width: '60px'
         },
         {
             title: 'System prompt',
@@ -39,17 +40,20 @@ const PromptSummaryTable = () => {
             title: 'Latest update',
             dataIndex: 'latestUpdate',
             ellipsis: true,
+            width: '150px',
             render: (text: string) => <Tooltip title={text} placement="topLeft">{text}</Tooltip>
         },
         {
             title: 'Active',
             dataIndex: 'isActive',
+            width: '100px',
             render: () => <Switch />
         },
         {
             title: 'Delete',
             dataIndex: 'isDelete',
-            render: () => <Checkbox />
+            width: '75px',
+            render: () => <Checkbox />,
         },
     ];
 
