@@ -4,6 +4,7 @@ import {S_FlexWrapper} from "../../../styles/Page.style";
 import {S_FormTitle} from "../../../../components/data-entry/form/Form.style";
 import {TableOutlined, EyeOutlined} from "@ant-design/icons";
 import PromptSummaryTable from "../table/PromptSummaryTable";
+import PromptDetail from "../../PromptDetail";
 
 
 const CreatePromptForm = () => {
@@ -57,7 +58,7 @@ const CreatePromptForm = () => {
                 gap={8}
             >
                 <Segmented options={ViewModeOptions} onChange={handleChangeMode} />
-                {mode === 'summary' ? <PromptSummaryTable /> : 'detail'}
+                {mode === 'summary' ? <PromptSummaryTable /> : <PromptDetail />}
             </S_FlexWrapper>
             {/*<Form.Item*/}
             {/*    label="System prompt"*/}
