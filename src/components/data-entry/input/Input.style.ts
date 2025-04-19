@@ -12,6 +12,11 @@ export const S_TextArea = styled(Input.TextArea)<ExtendedTextAreaProps>`
     height: ${({ height }) => height}px !important;
     resize: ${({ resize }) => resize ? '': 'none'} !important;
 
+    &.ant-input-disabled,
+    textarea:disabled {
+        background-color: var(--white) !important;
+        color: var(--blue-z-04) !important;
+    }
 `
 S_TextArea.displayName = 'S_TextArea'
 
