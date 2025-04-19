@@ -28,7 +28,13 @@ export const S_DisabledContent = styled.div<DisabledContentProps>`
     background: rgba(211, 211, 211, 0.8);
     border-radius: var(--radius-02);
     opacity: 0.5;` : null}
-   
-
 `
 S_DisabledContent.displayName = 'S_DisabledContent'
+
+export const S_BoxContainer = styled.div`
+    display: flex;
+    border-radius: var(--radius-02);
+    background-color: var(--blue-z-02);
+    padding: var(--spacing-03);
+    overflow-x: scroll;
+`
