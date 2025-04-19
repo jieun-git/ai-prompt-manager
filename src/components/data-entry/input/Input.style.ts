@@ -5,6 +5,11 @@ import {ExtendedTextAreaProps} from "./Input";
 export const S_Input = styled(Input)`
     width: ${({ width }) => width} !important;
 
+    &.ant-input-disabled,
+    input[disabled] {
+        background-color: var(--white) !important;
+        color: var(--blue-z-04) !important
+    }
 `
 S_Input.displayName = 'S_Input'
 
