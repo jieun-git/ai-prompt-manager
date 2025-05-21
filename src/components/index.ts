@@ -38,6 +38,7 @@ export { default as Input, TextArea, Search } from './data-entry/input/Input'
 // export { default as Radio } from './data-entry/Radio'
 export { default as Select } from './data-entry/select/Select'
 export { default as Switch } from './data-entry/switch/Switch'
+export { default as Upload } from './data-entry/upload/Upload'
 // export { default as AutoComplete } from './data-entry/autoComplete'
 
 // feedback
