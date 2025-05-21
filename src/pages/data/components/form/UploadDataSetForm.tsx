@@ -1,8 +1,9 @@
 import React from 'react'
 import { S_FlexWrapper, S_UploadContainer } from '../../../styles/Page.style'
 
-import { Upload, Form, Input, Button } from '../../../../components'
+import { Upload, Form, Input, Button, Tooltip } from '../../../../components'
 import { S_FormTitle } from '../../../../components/data-entry/form/Form.style'
+import { PlusCircleOutlined } from '@ant-design/icons'
 
 const UploadDataSetForm = () => {
     return (
@@ -11,7 +12,13 @@ const UploadDataSetForm = () => {
             <Form layout="vertical">
                 <Form.Item label="" name="csv" required width="100%">
                     <Upload>
-                        <S_UploadContainer>+ CSV</S_UploadContainer>
+                        <S_UploadContainer>
+                            <Tooltip title="Upload CSV">
+                                <PlusCircleOutlined
+                                    style={{ fontSize: '20px' }}
+                                />
+                            </Tooltip>
+                        </S_UploadContainer>
                     </Upload>
                 </Form.Item>
                 <Form.Item label="데이터 이름" name="dataName" required>
