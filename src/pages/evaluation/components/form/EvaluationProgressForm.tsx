@@ -43,6 +43,8 @@ const EvaluationProgressForm = () => {
         undefined,
     )
 
+    const [evaluationDisabled, setEvaluationDisabled] = useState<boolean>(true)
+
     const handleClickRun = async () => {
         setLoading(true)
 
@@ -83,8 +85,6 @@ const EvaluationProgressForm = () => {
             }, 2000)
         } catch (e) {
             console.error('[ERROR] Evaluation Error', e)
-        } finally {
-            // setLoading(false)
         }
     }
 
@@ -101,6 +101,12 @@ const EvaluationProgressForm = () => {
         }
     }, [tableColumns])
 
+    useEffect(() => {
+        if (selectedMetric?.length ?? 0 > 0) {
+            setEvaluationDisabled(false)
+        } else setEvaluationDisabled(true)
+    }, [selectedMetric])
+
     return (
         <S_FlexWrapper flexDirection="column" gap={8}>
             <S_FormTitle>Evaluation</S_FormTitle>
@@ -114,11 +120,10 @@ const EvaluationProgressForm = () => {
                                 width="400px"
                                 required
                             >
-                                {showResult ? (
-                                    <Input disabled />
-                                ) : (
-                                    <Select placeholder="// Required" />
-                                )}
+                                <Select
+                                    disabled={showResult}
+                                    placeholder="// Required"
+                                />
                             </Form.Item>
                             <Form.Item
                                 label="Tool"
@@ -126,11 +131,10 @@ const EvaluationProgressForm = () => {
                                 width="400px"
                                 required
                             >
-                                {showResult ? (
-                                    <Input disabled />
-                                ) : (
-                                    <Select placeholder="// Required" />
-                                )}
+                                <Select
+                                    disabled={showResult}
+                                    placeholder="// Required"
+                                />
                             </Form.Item>
                             <Form.Item
                                 label="Model"
@@ -138,11 +142,10 @@ const EvaluationProgressForm = () => {
                                 width="400px"
                                 required
                             >
-                                {showResult ? (
-                                    <Input disabled />
-                                ) : (
-                                    <Select placeholder="// Required" />
-                                )}
+                                <Select
+                                    disabled={showResult}
+                                    placeholder="// Required"
+                                />
                             </Form.Item>
                             <Form.Item
                                 label="Teset data set"
@@ -150,11 +153,10 @@ const EvaluationProgressForm = () => {
                                 width="400px"
                                 required
                             >
-                                {showResult ? (
-                                    <Input disabled />
-                                ) : (
-                                    <Select placeholder="// Required" />
-                                )}
+                                <Select
+                                    disabled={showResult}
+                                    placeholder="// Required"
+                                />
                             </Form.Item>
                             <Form.Item
                                 label="Metric"
@@ -162,80 +164,78 @@ const EvaluationProgressForm = () => {
                                 width="400px"
                                 required
                             >
-                                {showResult ? (
-                                    <Input disabled />
-                                ) : (
-                                    <Select
-                                        mode="multiple"
-                                        options={[
-                                            {
-                                                label: 'metric1',
-                                                value: 'metric1',
-                                            },
-                                            {
-                                                label: 'metric2',
-                                                value: 'metric2',
-                                            },
-                                            {
-                                                label: 'metric3',
-                                                value: 'metric3',
-                                            },
-                                            {
-                                                label: 'metric4',
-                                                value: 'metric4',
-                                            },
-                                            {
-                                                label: 'metric5',
-                                                value: 'metric5',
-                                            },
-                                            {
-                                                label: 'metric6',
-                                                value: 'metric6',
-                                            },
-                                            {
-                                                label: 'metric7',
-                                                value: 'metric7',
-                                            },
-                                            {
-                                                label: 'metric8',
-                                                value: 'metric8',
-                                            },
-                                            {
-                                                label: 'metric9',
-                                                value: 'metric9',
-                                            },
-                                            {
-                                                label: 'metric10',
-                                                value: 'metric10',
-                                            },
-                                            {
-                                                label: 'metric11',
-                                                value: 'metric11',
-                                            },
-                                            {
-                                                label: 'metric12',
-                                                value: 'metric12',
-                                            },
-                                            {
-                                                label: 'metric13',
-                                                value: 'metric13',
-                                            },
-                                            {
-                                                label: 'metric14',
-                                                value: 'metric14',
-                                            },
-                                            {
-                                                label: 'metric15',
-                                                value: 'metric15',
-                                            },
-                                        ]}
-                                        placeholder="// Required"
-                                        onChange={handleChangeMetric}
-                                    />
-                                )}{' '}
+                                <Select
+                                    disabled={showResult}
+                                    mode="multiple"
+                                    options={[
+                                        {
+                                            label: 'metric1',
+                                            value: 'metric1',
+                                        },
+                                        {
+                                            label: 'metric2',
+                                            value: 'metric2',
+                                        },
+                                        {
+                                            label: 'metric3',
+                                            value: 'metric3',
+                                        },
+                                        {
+                                            label: 'metric4',
+                                            value: 'metric4',
+                                        },
+                                        {
+                                            label: 'metric5',
+                                            value: 'metric5',
+                                        },
+                                        {
+                                            label: 'metric6',
+                                            value: 'metric6',
+                                        },
+                                        {
+                                            label: 'metric7',
+                                            value: 'metric7',
+                                        },
+                                        {
+                                            label: 'metric8',
+                                            value: 'metric8',
+                                        },
+                                        {
+                                            label: 'metric9',
+                                            value: 'metric9',
+                                        },
+                                        {
+                                            label: 'metric10',
+                                            value: 'metric10',
+                                        },
+                                        {
+                                            label: 'metric11',
+                                            value: 'metric11',
+                                        },
+                                        {
+                                            label: 'metric12',
+                                            value: 'metric12',
+                                        },
+                                        {
+                                            label: 'metric13',
+                                            value: 'metric13',
+                                        },
+                                        {
+                                            label: 'metric14',
+                                            value: 'metric14',
+                                        },
+                                        {
+                                            label: 'metric15',
+                                            value: 'metric15',
+                                        },
+                                    ]}
+                                    placeholder="// Required"
+                                    onChange={handleChangeMetric}
+                                />
                             </Form.Item>
                         </S_FlexWrapper>
                         <Button
+                            disabled={evaluationDisabled}
                             type="text"
                             onClick={
                                 showResult ? handleClickRewind : handleClickRun
