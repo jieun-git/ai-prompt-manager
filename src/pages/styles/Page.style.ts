@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export interface FlexProps {
-    flexDirection?: 'column' | 'row';
+    flexDirection?: 'column' | 'row'
     gap?: number
     alignItems?: 'flex-start' | 'center' | 'flex-end'
     justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between'
     padding?: string
+    width?: string
 }
 
 export interface DisabledContentProps {
@@ -19,15 +20,18 @@ export const S_FlexWrapper = styled.div<FlexProps>`
     align-items: ${({ alignItems }) => alignItems};
     justify-content: ${({ justifyContent }) => justifyContent};
     padding: ${({ padding }) => padding};
-
+    width: ${({ width }) => width};
 `
 S_FlexWrapper.displayName = 'S_FlexWrapper'
 
 export const S_DisabledContent = styled.div<DisabledContentProps>`
-    ${({ disabled }) => disabled ? ` pointer-events: none;
+    ${({ disabled }) =>
+        disabled
+            ? ` pointer-events: none;
     background: rgba(211, 211, 211, 0.8);
     border-radius: var(--radius-02);
-    opacity: 0.5;` : null}
+    opacity: 0.5;`
+            : null}
 `
 S_DisabledContent.displayName = 'S_DisabledContent'
 
@@ -37,4 +41,22 @@ export const S_BoxContainer = styled.div`
     background-color: var(--blue-z-02);
     padding: var(--spacing-03);
     overflow-x: scroll;
+`
+
+export const S_UploadContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-02);
+    border: 1px dashed var(--blue-z-02);
+    width: 100%;
+    height: 10rem;
+    color: var(--blue-z-02);
+
+    &:hover {
+        border: 1px dashed var(--yellow-z-01);
+        cursor: pointer;
+        background: var(--blue-z-01);
+        color: var(--yellow-z-01);
+    }
 `
