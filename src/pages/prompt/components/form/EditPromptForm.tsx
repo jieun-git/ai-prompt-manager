@@ -6,7 +6,7 @@ import { TableOutlined, EyeOutlined } from '@ant-design/icons'
 import PromptSummaryTable from '../table/PromptSummaryTable'
 import PromptDetail from '../../PromptDetail'
 
-const CreatePromptForm = () => {
+const EditPromptForm = () => {
     const [mode, setMode] = useState<string | number>('summary')
     const ViewModeOptions = [
         { value: 'summary', icon: <TableOutlined /> },
@@ -64,4 +64,4 @@ const CreatePromptForm = () => {
     )
 }
 
-export default CreatePromptForm
+export default EditPromptForm

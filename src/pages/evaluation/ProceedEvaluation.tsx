@@ -4,7 +4,7 @@ import { S_FlexWrapper } from '../styles/Page.style'
 
 const ProceedEvaluation = () => {
     return (
-        <S_FlexWrapper flexDirection="column" gap={24} padding="16px">
+        <S_FlexWrapper flexDirection="column" gap={24}>
             <EvaluationProgressForm />
             <EvaluationAnalysisForm />
         </S_FlexWrapper>
