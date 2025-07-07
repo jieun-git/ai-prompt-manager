@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const axios = axios.create({
+const axiosCreate = axios.create({
     baseURL: process.env.REACT_APP_DEV_PROXY_SERVER,
     timeout: 60000,
     headers: {
@@ -9,7 +9,7 @@ const axios = axios.create({
 })
 
 // 응답 에러
-axios.interceptors.response.use(
+axiosCreate.interceptors.response.use(
     (response) => response,
     (error) => {
         console.error('API Error:', error)
@@ -17,4 +17,4 @@ axios.interceptors.response.use(
     },
 )
 
-export default axios
+export default axiosCreate
