@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import {
+    Typo_body_02,
+    Typo_heading_06_bold,
+} from '../../styles/constants/typogrphy'
 
 export interface FlexProps {
     flexDirection?: 'column' | 'row'
@@ -6,7 +10,9 @@ export interface FlexProps {
     alignItems?: 'flex-start' | 'center' | 'flex-end'
     justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between'
     padding?: string
+    margin?: string
     width?: string
+    height?: string
 }
 
 export interface DisabledContentProps {
@@ -21,6 +27,8 @@ export const S_FlexWrapper = styled.div<FlexProps>`
     justify-content: ${({ justifyContent }) => justifyContent};
     padding: ${({ padding }) => padding};
     width: ${({ width }) => width};
+    height: ${({ height }) => height};
+    margin: ${({ margin }) => margin};
 `
 S_FlexWrapper.displayName = 'S_FlexWrapper'
 
@@ -59,4 +67,14 @@ export const S_UploadContainer = styled.div`
         background: var(--blue-z-01);
         color: var(--yellow-z-01);
     }
+`
+
+export const S_PromptMainTitle = styled.h1`
+    color: var(--blue-z-02);
+    ${Typo_heading_06_bold};
+`
+
+export const S_PromptMainDescription = styled.p`
+    color: var(--gray-06);
+    ${Typo_body_02};
 `

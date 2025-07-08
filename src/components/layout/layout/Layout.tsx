@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react'
 import {
     FileTextOutlined,
     LikeOutlined,
     DatabaseOutlined,
-} from '@ant-design/icons';
-import { LayoutProps as AntLayoutProps, MenuProps } from "antd";
-import S_Layout from "./Layout.style";
-import {Sider, Content, Header, Menu} from "../../index";
-import {useNavigate} from "react-router-dom";
+} from '@ant-design/icons'
+import { LayoutProps as AntLayoutProps, MenuProps } from 'antd'
+import S_Layout from './Layout.style'
+import { Sider, Content, Header, Menu } from '../../index'
+import { useNavigate } from 'react-router-dom'
 
-type MenuItem = Required<MenuProps>['items'][number];
+type MenuItem = Required<MenuProps>['items'][number]
 
 interface LayoutProps {
     menuKey: string
@@ -17,19 +17,32 @@ interface LayoutProps {
 }
 
 const MenuItems: MenuItem[] = [
-    { key: 'prompt', icon: <FileTextOutlined />, label: 'Prompt' },
+    {
+        key: 'prompt',
+        icon: <FileTextOutlined />,
+        label: 'Prompt',
+        children: [
+            { key: 'prompt/create', label: 'Create Prompt' },
+            { key: 'prompt/manage', label: 'Manage Prompt' },
+        ],
+    },
     { key: 'evaluation', icon: <LikeOutlined />, label: 'Evaluation' },
-    { key: 'data', icon: <DatabaseOutlined />, label: 'Data' }
+    { key: 'data', icon: <DatabaseOutlined />, label: 'Data' },
 ]
 
-const Layout:React.FC<AntLayoutProps & LayoutProps> = ({
-                                                           menuKey, headerTitle, children, ...props}) => {
-    const navigate = useNavigate();
+const Layout: React.FC<AntLayoutProps & LayoutProps> = ({
+    menuKey,
+    headerTitle,
+    children,
+    ...props
+}) => {
+    const navigate = useNavigate()
 
-    const handleClickMenu = (value: {
-        key: string
-    }) => {
+    const [selectedMenuKey, setSelectedMenuKey] = useState<string>(menuKey)
+
+    const handleClickMenu = (value: { key: string }) => {
         navigate(`/${value.key}`)
+        setSelectedMenuKey(value.key)
     }
 
     return (
@@ -38,6 +51,8 @@ const Layout:React.FC<AntLayoutProps & LayoutProps> = ({
                 <Menu
                     // TODO Home에서 선택해서 들어온 key
                     defaultSelectedKeys={[menuKey]}
+                    defaultOpenKeys={['prompt']}
+                    selectedKeys={[selectedMenuKey]}
                     mode="inline"
                     // theme="dark"
                     // inlineCollapsed={collapsed}
@@ -53,4 +68,4 @@ const Layout:React.FC<AntLayoutProps & LayoutProps> = ({
     )
 }
 
-export default Layout;
+export default Layout
