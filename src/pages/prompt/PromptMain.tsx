@@ -1,32 +1,53 @@
-import React from 'react';
-import { Tabs, Layout } from "../../components";
-import {TabsProps} from "antd";
-import CreatePrompt from "./CreatePrompt";
-import EditPrompt from "./EditPrompt";
+import React from 'react'
+import { Button } from '../../components'
 
 import {
-    FileTextOutlined,
-} from '@ant-design/icons';
+    S_FlexWrapper,
+    S_PromptMainDescription,
+    S_PromptMainTitle,
+} from '../styles/Page.style'
+import { useNavigate } from 'react-router-dom'
 
 const PromptMain = () => {
-    const items: TabsProps['items'] = [
-        {
-            key: 'create',
-            label: 'Prompt 추가',
-            children: <CreatePrompt />,
-        },
-        {
-            key: 'update',
-            label: 'Prompt 조회/편집',
-            children: <EditPrompt />,
-        },
-    ];
+    const navigate = useNavigate()
+
+    const handleClickCreate = () => {
+        navigate('/prompt/create')
+    }
+
+    const handleClickManage = () => {
+        navigate('/prompt/manage')
+    }
 
     return (
-        <Layout menuKey="prompt" headerTitle={<span><FileTextOutlined /> 프롬프트 관리</span>}>
-            <Tabs defaultActiveKey="create" items={items} />
-        </Layout>
+        <S_FlexWrapper
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            width="100%"
+            height="100vh"
+            gap={16}
+        >
+            <S_PromptMainTitle>
+                Get Started with Prompt Management
+            </S_PromptMainTitle>
+            <S_PromptMainDescription>
+                Prompt Manager helps you centrally manage, version control, and
+                collaboratively iterate on your prompts.
+                <br />
+                Start using prompt management to improve your LLM application's
+                performance and maintainability.
+            </S_PromptMainDescription>
+            <S_FlexWrapper gap={16} margin={'24px 0 0 0'}>
+                <Button type="primary" onClick={handleClickCreate}>
+                    Create Prompt
+                </Button>
+                <Button type="primary" onClick={handleClickManage}>
+                    Manage Prompt
+                </Button>
+            </S_FlexWrapper>
+        </S_FlexWrapper>
     )
 }
 
-export default PromptMain;
+export default PromptMain
