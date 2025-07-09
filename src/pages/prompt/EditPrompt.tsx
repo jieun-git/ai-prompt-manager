@@ -5,10 +5,7 @@ import { Button, Layout } from '../../components'
 
 const EditPromptPage = () => {
     return (
-        <Layout
-            menuKey="prompt/manage"
-            headerTitle={<span>프롬프트 관리</span>}
-        >
+        <Layout menuKey="prompt/manage" headerTitle={<span>Manage</span>}>
             <S_FlexWrapper flexDirection="column" gap={16}>
                 <EditPromptForm />
                 <S_FlexWrapper justifyContent="flex-end">

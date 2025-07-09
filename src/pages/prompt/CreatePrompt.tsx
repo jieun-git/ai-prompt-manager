@@ -6,10 +6,7 @@ import { S_FlexWrapper } from '../styles/Page.style'
 
 const CreatePrompt = () => {
     return (
-        <Layout
-            menuKey="prompt/create"
-            headerTitle={<span>프롬프트 추가</span>}
-        >
+        <Layout menuKey="prompt/create" headerTitle={<span>Create</span>}>
             <S_FlexWrapper flexDirection="column" gap={16}>
                 <CreatePromptForm />
                 <RunPromptForm />
