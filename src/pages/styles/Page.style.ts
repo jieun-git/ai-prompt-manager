@@ -82,3 +82,15 @@ export const S_PromptMainDescription = styled.p`
 export const S_Description = styled.p`
     color: var(--text-helper);
 `
+
+export const S_PromptListContent = styled.div`
+    width: 28rem;
+    height: 100%;
+    border-right: 0.1rem solid var(--green-z-01);
+    padding: var(--spacing-04);
+`
+
+export const S_PromptDetailContent = styled.div`
+    width: calc(100% - 28rem);
+    padding: var(--spacing-04);
+`

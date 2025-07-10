@@ -1,7 +1,9 @@
 import { Table, Tooltip, Button, Tag } from '../../../../components'
 import { DeleteOutlined } from '@ant-design/icons'
+import React, { useEffect, useState } from 'react'
+import NodeDetailDrawer from '../drawer/NodeDetailDrawer'
 
-interface DataType {
+export interface NodeData {
     key: React.Key
     name: string
     versions: number
@@ -9,13 +11,26 @@ interface DataType {
 }
 
 const PromptManageTable = () => {
+    const [openDrawer, setOpenDrawer] = useState<boolean>(false)
+    const [selectedRow, setSelectedRow] = useState<NodeData | undefined>(
+        undefined,
+    )
+
+    const handleClickNodeName = () => {
+        setSelectedRow(data[0])
+    }
+
+    const handleCloseDrawer = () => {
+        setOpenDrawer(false)
+    }
+
     const columns = [
         {
             title: 'Name',
             dataIndex: 'name',
             ellipsis: true,
             render: (text: string) => (
-                <Button type="text">
+                <Button type="text" onClick={handleClickNodeName}>
                     <Tag>{text}</Tag>
                 </Button>
             ),
@@ -48,7 +63,7 @@ const PromptManageTable = () => {
         },
     ]
 
-    const data: DataType[] = [
+    const data: NodeData[] = [
         {
             key: '1',
             name: 'Prompt1',
@@ -70,7 +85,24 @@ const PromptManageTable = () => {
         },
     ]
 
-    return <Table columns={columns} dataSource={data} pagination={false} />
+    useEffect(() => {
+        if (selectedRow) {
+            setOpenDrawer(true)
+        }
+    }, [selectedRow])
+
+    return (
+        <>
+            <Table columns={columns} dataSource={data} pagination={false} />
+            {openDrawer && (
+                <NodeDetailDrawer
+                    openDrawer={openDrawer}
+                    selectedRow={selectedRow}
+                    onClose={handleCloseDrawer}
+                />
+            )}
+        </>
+    )
 }
 
 export default PromptManageTable
