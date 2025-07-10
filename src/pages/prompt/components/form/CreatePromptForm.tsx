@@ -1,63 +1,47 @@
 import React from 'react'
-import { Form, Select, TextArea } from '../../../../components'
-import { S_FlexWrapper } from '../../../styles/Page.style'
-import { S_FormTitle } from '../../../../components/data-entry/form/Form.style'
+import { Form, Select, TextArea, Button } from '../../../../components'
+import { S_Description, S_FlexWrapper } from '../../../styles/Page.style'
+import { PlusCircleOutlined } from '@ant-design/icons'
 
 const CreatePromptForm = () => {
     return (
-        <S_FlexWrapper flexDirection="column" gap={8}>
-            <S_FormTitle>Template</S_FormTitle>
-            <Form layout="vertical">
-                <S_FlexWrapper justifyContent="space-between" gap={24}>
-                    {' '}
-                    <Form.Item
-                        label="Chain Name"
-                        name="chain"
-                        width="30%"
-                        required
-                    >
-                        <Select placeholder="// Required" />
-                    </Form.Item>
-                    <Form.Item
-                        label="Tool Name"
-                        name="tool"
-                        width="30%"
-                        required
-                    >
-                        <Select placeholder="// Required" />
-                    </Form.Item>
-                    <Form.Item
-                        label="Model Name"
-                        name="model"
-                        width="30%"
-                        required
-                    >
-                        <Select placeholder="// Required" />
-                    </Form.Item>
+        <Form layout="vertical">
+            <Form.Item label="Node Name" name="node" width="100%" required>
+                <Select placeholder="Select a node name" />
+            </Form.Item>
+            <Form.Item label="Prompt" name="prompt" required>
+                <S_Description>
+                    Define your prompt template. You can use{' '}
+                    {String.raw`{{variable}}`} to insert variables into your
+                    prompt. <br />
+                    Note: Variables must be alphabetical characters or
+                    underscores. You can also link other text prompts using the
+                    plus button.
+                </S_Description>
+                <S_FlexWrapper
+                    flexDirection="column"
+                    margin="8px 0 0 0"
+                    gap={16}
+                >
+                    drag & drop
+                    <Button>
+                        <PlusCircleOutlined />
+                        Add message
+                    </Button>
                 </S_FlexWrapper>
-                <Form.Item label="System prompt" name="system" required>
-                    <TextArea
-                        height={80}
-                        resize={false}
-                        placeholder="// Required"
-                    />
-                </Form.Item>
-                <Form.Item label="User prompt" name="user" required>
-                    <TextArea
-                        height={80}
-                        resize={false}
-                        placeholder="// Required"
-                    />
-                </Form.Item>
-                <Form.Item label="Assistant prompt" name="assistant">
-                    <TextArea
-                        height={80}
-                        resize={false}
-                        placeholder="// Optional"
-                    />
-                </Form.Item>
-            </Form>
-        </S_FlexWrapper>
+            </Form.Item>
+            <Form.Item label="Commit message (Optional)" name="commitMessage">
+                <S_Description>
+                    Provide information about the changed made in this version.
+                    Helps maintain a clear history of prompt iterations.
+                </S_Description>
+                <TextArea
+                    height={80}
+                    resize={false}
+                    placeholder="Add commit message..."
+                />
+            </Form.Item>
+        </Form>
     )
 }
 

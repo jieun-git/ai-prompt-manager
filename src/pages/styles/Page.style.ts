@@ -78,3 +78,7 @@ export const S_PromptMainDescription = styled.p`
     color: var(--gray-06);
     ${Typo_body_02};
 `
+
+export const S_Description = styled.p`
+    color: var(--text-helper);
+`
