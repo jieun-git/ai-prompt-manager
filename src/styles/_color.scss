@@ -41,6 +41,7 @@
   --green-z-01: #567c8d;
 
   --background-z-default: var(--blue-z-01);
+  --disabled-input: var(--gray-03);
 
 
 
@@ -63,7 +64,7 @@
   --text-primary: var(--gray-10); //Primary text; Body copy;Headers;
   --text-secondary: var(--gray-08); //Secondary text; Input labels;
   --text-helper: var(--gray-05); //help text;
-  --text-placeholder: var(--gray-04); //input, textarea placeholder;
+  --text-placeholder: var(--gray-07); //input, textarea placeholder;
   --text-disabled: var(--gray-05);
   --text-error: var(--red-06);
   --text-info: var(--blue-06);
