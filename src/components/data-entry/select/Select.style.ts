@@ -11,7 +11,7 @@ export const S_Select = styled(Select)<ExtendedSelectProps>`
         color: var(--white);
 
         &:hover {
-            border-color: var(--yellow-z-01);
+            border-color: var(--yellow-z-01) !important;
         }
     }
 
@@ -21,11 +21,15 @@ export const S_Select = styled(Select)<ExtendedSelectProps>`
 
     &&.ant-select-disabled .ant-select-selector {
         background-color: var(--disabled-input);
-        color: var(--text-placeholder);
+        color: var(--text-disabled);
 
         &:hover {
             border-color: var(--green-z-01);
         }
+    }
+
+    &&.ant-select-disabled .ant-select-selection-placeholder {
+        color: var(--text-disabled);
     }
 
     && .ant-select-arrow {
