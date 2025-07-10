@@ -25,6 +25,7 @@ const S_Menu = styled(Menu)`
         &.ant-menu-item-selected {
             color: var(--blue-z-04) !important;
             font-weight: 800;
+            border-radius: var(--radius-01);
 
             &:hover {
                 color: var(--yellow-z-01) !important;
