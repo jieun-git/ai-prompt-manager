@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {
     Typo_body_02,
+    Typo_heading_03,
     Typo_heading_06_bold,
 } from '../../styles/constants/typogrphy'
 
@@ -79,18 +80,59 @@ export const S_PromptMainDescription = styled.p`
     ${Typo_body_02};
 `
 
-export const S_Description = styled.p`
+export const S_Helper = styled.span`
     color: var(--text-helper);
 `
 
-export const S_PromptListContent = styled.div`
-    width: 28rem;
+export const S_PromptVersionList = styled.div`
+    width: 32rem;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-06);
     border-right: 0.1rem solid var(--green-z-01);
-    padding: var(--spacing-04);
+    padding: var(--spacing-06);
 `
 
-export const S_PromptDetailContent = styled.div`
-    width: calc(100% - 28rem);
-    padding: var(--spacing-04);
+export const S_PromptVersion = styled.div<{ isSelected?: boolean }>`
+    padding: var(--spacing-02);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-04);
+    width: 100%;
+    height: 10rem;
+    border-radius: var(--radius-01);
+    background: ${({ isSelected }) =>
+        isSelected ? 'var(--layer-01)' : 'transparent'};
+
+    &:hover {
+        cursor: pointer;
+        border-radius: var(--radius-01);
+        background: var(--layer-03-hover);
+    }
+`
+
+export const S_ProductionState = styled.p`
+    color: var(--green-08);
+`
+
+export const S_PromptVersionDetail = styled.div`
+    padding: var(--spacing-06);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-04);
+    width: calc(100% - 32rem);
+    height: 100%;
+`
+
+export const S_PromptVersionDetailHeader = styled.div`
+    display: flex;
+    gap: var(--spacing-02);
+    ${Typo_heading_03};
+`
+
+export const S_PromptVersionDetailContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-04);
 `

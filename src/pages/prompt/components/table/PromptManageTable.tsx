@@ -30,9 +30,7 @@ const PromptManageTable = () => {
             dataIndex: 'name',
             ellipsis: true,
             render: (text: string) => (
-                <Button type="text" onClick={handleClickNodeName}>
-                    <Tag>{text}</Tag>
-                </Button>
+                <Tag onClick={handleClickNodeName}>{text}</Tag>
             ),
         },
         {
