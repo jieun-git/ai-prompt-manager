@@ -8,8 +8,8 @@ import {
 import {
     DeleteOutlined,
     CopyOutlined,
-    // ThunderboltOutlined,
-    // ThunderboltFilled,
+    ThunderboltOutlined,
+    ThunderboltFilled,
 } from '@ant-design/icons'
 import { Tag, Descriptions, Button, Tooltip } from '../../components'
 import { message } from 'antd'
@@ -50,6 +50,13 @@ const PromptVersionDetail = ({
 
     const handleClickProduction = (ver: string) => {
         onChangeDefaultProduction(ver)
+
+        if (ver !== defaultProduction) {
+            messageApi.open({
+                type: 'success',
+                content: 'It is set to production prompt.',
+            })
+        }
     }
 
     const itemArr = ['System', 'User', 'Assistant']
@@ -64,14 +71,16 @@ const PromptVersionDetail = ({
                     justifyContent="space-between"
                 >
                     {prompt[item?.toLowerCase()]}
-                    <Button
-                        type="text"
-                        onClick={() =>
-                            handleClickCopy(prompt[item?.toLowerCase()])
-                        }
-                    >
-                        <CopyOutlined />
-                    </Button>
+                    <Tooltip title="Copy">
+                        <Button
+                            type="text"
+                            onClick={() =>
+                                handleClickCopy(prompt[item?.toLowerCase()])
+                            }
+                        >
+                            <CopyOutlined />
+                        </Button>
+                    </Tooltip>
                 </S_FlexWrapper>
             ),
         }
@@ -97,11 +106,11 @@ const PromptVersionDetail = ({
                                         handleClickProduction(version)
                                     }
                                 >
-                                    {/*{defaultProduction === version ? (*/}
-                                    {/*    <ThunderboltFilled />*/}
-                                    {/*) : (*/}
-                                    {/*    <ThunderboltOutlined />*/}
-                                    {/*)}*/}
+                                    {defaultProduction === version ? (
+                                        <ThunderboltFilled />
+                                    ) : (
+                                        <ThunderboltOutlined />
+                                    )}
                                 </Button>
                             </Tooltip>
                         </S_FlexWrapper>
