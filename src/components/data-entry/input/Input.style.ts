@@ -79,5 +79,79 @@ S_TextArea.displayName = 'S_TextArea'
 
 export const S_InputSearch = styled(Input.Search)`
     width: ${({ width }) => width} !important;
+
+    .ant-input {
+        background: var(--background);
+        border: 1px solid var(--green-z-01);
+        color: var(--white);
+
+        &::placeholder {
+            color: var(--text-placeholder);
+            opacity: 1;
+        }
+
+        &:focus {
+            background: var(--background);
+            border: 1px solid var(--yellow-z-01);
+        }
+
+        &:hover {
+            background: var(--background);
+            border: 1px solid var(--yellow-z-01);
+        }
+
+        &:disabled {
+            background-color: var(--disabled-input);
+            border: 1px solid var(--green-z-01);
+            color: var(--text-disabled);
+
+            &::placeholder {
+                color: var(--text-disabled);
+                opacity: 1;
+            }
+        }
+    }
+
+    .ant-input-affix-wrapper {
+        background: var(--background);
+        border: 1px solid var(--green-z-01);
+        color: var(--white);
+
+        &:hover {
+            border: 1px solid var(--yellow-z-01);
+        }
+
+        &.ant-input-affix-wrapper-focused {
+            border: 1px solid var(--yellow-z-01);
+        }
+
+        &.ant-input-affix-wrapper-disabled {
+            background-color: var(--disabled-input);
+            border: 1px solid var(--green-z-01);
+            color: var(--text-disabled);
+
+            input {
+                color: var(--text-disabled);
+                background-color: var(--disabled-input);
+            }
+
+            input::placeholder {
+                color: var(--text-disabled);
+                opacity: 1;
+            }
+        }
+    }
+
+    .ant-input-search-button {
+        border: 0.1rem solid var(--green-z-01);
+        background: transparent;
+        color: var(--green-z-01) !important;
+        height: 3rem;
+        &:hover {
+            border: 0.1rem solid var(--green-z-01) !important;
+            background: var(--background) !important;
+            color: var(--yellow-z-01) !important;
+        }
+    }
 `
 S_InputSearch.displayName = 'S_InputSearch'
