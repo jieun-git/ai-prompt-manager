@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout/layout/Layout'
 import { DatabaseOutlined } from '@ant-design/icons'
-import UploadDataSetForm from './components/form/UploadDataSetForm'
+import DatasetsContent from './DatasetsContent'
 
 const DatasetsMain = () => {
     return (
@@ -13,7 +13,7 @@ const DatasetsMain = () => {
                 </span>
             }
         >
-            <UploadDataSetForm />
+            <DatasetsContent />
         </Layout>
     )
 }
