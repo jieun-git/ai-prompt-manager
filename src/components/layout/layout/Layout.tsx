@@ -27,7 +27,7 @@ const MenuItems: MenuItem[] = [
         ],
     },
     { key: 'evaluation', icon: <LikeOutlined />, label: 'Evaluation' },
-    { key: 'data', icon: <DatabaseOutlined />, label: 'Data' },
+    { key: 'datasets', icon: <DatabaseOutlined />, label: 'Datasets' },
 ]
 
 const Layout: React.FC<AntLayoutProps & LayoutProps> = ({

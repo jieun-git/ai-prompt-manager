@@ -3,13 +3,13 @@ import Layout from '../../components/layout/layout/Layout'
 import { DatabaseOutlined } from '@ant-design/icons'
 import UploadDataSetForm from './components/form/UploadDataSetForm'
 
-const DataMain = () => {
+const DatasetsMain = () => {
     return (
         <Layout
-            menuKey="data"
+            menuKey="datasets"
             headerTitle={
                 <span>
-                    <DatabaseOutlined /> 데이터 평가
+                    <DatabaseOutlined /> Datasets
                 </span>
             }
         >
@@ -18,4 +18,4 @@ const DataMain = () => {
     )
 }
 
-export default DataMain
+export default DatasetsMain

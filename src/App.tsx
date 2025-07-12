@@ -2,7 +2,7 @@ import React from 'react'
 import Home from './pages/home/Home'
 import PromptMain from './pages/prompt/PromptMain'
 import EvaluationMain from './pages/evaluation/EvaluationMain'
-import DataMain from './pages/data/DataMain'
+import DatasetsMain from './pages/datasets/DatasetsMain'
 import NotFound from './pages/error/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './styles/base.scss'
@@ -19,7 +19,7 @@ function App() {
                     <Route path="/prompt/create" element={<CreatePrompt />} />
                     <Route path="/prompt/manage" element={<EditPromptPage />} />
                     <Route path="/evaluation" element={<EvaluationMain />} />
-                    <Route path="/data" element={<DataMain />} />
+                    <Route path="/datasets" element={<DatasetsMain />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
