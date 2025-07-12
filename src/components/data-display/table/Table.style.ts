@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 const S_TableWrapper = styled.div`
     border-radius: var(--radius-02);
-    // padding: var(--spacing-04);
-    //  background-color: transparent;
 `
 S_TableWrapper.displayName = 'S_TableWrapper'
 
@@ -33,6 +31,38 @@ const S_Table = styled(Table)<TableProps>`
 
     .ant-table-tbody > tr:hover > td {
         background: transparent !important;
+    }
+
+    .ant-pagination {
+        .ant-pagination-item {
+            background: transparent;
+            border: none;
+
+            a {
+                color: var(--green-z-01);
+            }
+        }
+
+        .ant-pagination-item-active {
+            background: transparent;
+
+            a {
+                font-weight: 800;
+                color: var(--yellow-z-01);
+            }
+        }
+
+        .ant-pagination-prev,
+        .ant-pagination-next {
+            background: transparent;
+            border: none;
+
+            .ant-pagination-item-link {
+                color: var(--green-z-01);
+                background: transparent;
+                border: none;
+            }
+        }
     }
 `
 S_Table.displayName = 'S_Table'
