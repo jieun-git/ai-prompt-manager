@@ -45,7 +45,7 @@ export { default as Upload } from './data-entry/upload/Upload'
 // feedback
 export { default as Spin } from './feedback/spin/Spin'
 export { default as Drawer } from './feedback/drawer/Drawer'
-// export { default as Modal } from './feedback/modal'
+export { default as Modal } from './feedback/modal/Modal'
 // export { default as Confirm } from './feedback/Confirm'
 // export { default as Result } from './feedback/result'
 
