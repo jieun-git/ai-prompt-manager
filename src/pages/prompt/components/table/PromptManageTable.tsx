@@ -1,7 +1,8 @@
-import { Table, Tooltip, Button, Tag } from '../../../../components'
-import { DeleteOutlined } from '@ant-design/icons'
+import { Table, Tooltip, Button, Tag, Modal } from '../../../../components'
+import { DeleteOutlined, WarningOutlined } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react'
 import NodeDetailDrawer from '../drawer/NodeDetailDrawer'
+import { message } from 'antd'
 
 export interface NodeData {
     key: React.Key
@@ -11,26 +12,54 @@ export interface NodeData {
 }
 
 const PromptManageTable = () => {
+    const [messageApi, contextHolder] = message.useMessage()
+
+    const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
     const [openDrawer, setOpenDrawer] = useState<boolean>(false)
     const [selectedRow, setSelectedRow] = useState<NodeData | undefined>(
         undefined,
     )
 
-    const handleClickNodeName = () => {
-        setSelectedRow(data[0])
+    const handleClickNodeName = (record: NodeData) => {
+        setSelectedRow(record)
     }
 
     const handleCloseDrawer = () => {
         setOpenDrawer(false)
+        setSelectedRow(undefined)
     }
 
-    const columns = [
+    const handleOpenDeleteModal = () => {
+        setOpenDeleteModal(true)
+    }
+
+    const handleCloseDeleteModal = () => {
+        setOpenDeleteModal(false)
+    }
+
+    const handleDeletePrompt = () => {
+        setOpenDeleteModal(false)
+
+        // Delete
+        // selectedRow.key 에 해당하는 row 삭제
+
+        messageApi.open({
+            type: 'success',
+            content: 'Delete Successfully.',
+        })
+        // messageApi.open({
+        //     type: 'error',
+        //     content: 'Deletion failed.',
+        // })
+    }
+
+    const columns: any[] = [
         {
             title: 'Name',
             dataIndex: 'name',
             ellipsis: true,
-            render: (text: string) => (
-                <Tag onClick={handleClickNodeName}>{text}</Tag>
+            render: (text: string, record: NodeData) => (
+                <Tag onClick={() => handleClickNodeName(record)}>{text}</Tag>
             ),
         },
         {
@@ -50,11 +79,11 @@ const PromptManageTable = () => {
             ),
         },
         {
-            title: 'Delete',
+            title: '',
             dataIndex: 'delete',
             width: '100px',
-            render: () => (
-                <Button type="text">
+            render: (_: string) => (
+                <Button type="text" onClick={handleOpenDeleteModal}>
                     <DeleteOutlined />
                 </Button>
             ),
@@ -91,6 +120,17 @@ const PromptManageTable = () => {
 
     return (
         <>
+            {openDeleteModal && (
+                <Modal
+                    open={openDeleteModal}
+                    onOk={handleDeletePrompt}
+                    onCancel={handleCloseDeleteModal}
+                >
+                    <WarningOutlined /> Are you sure you want to delete{' '}
+                    {selectedRow?.name}?
+                </Modal>
+            )}
+            {contextHolder}
             <Table columns={columns} dataSource={data} pagination={false} />
             {openDrawer && (
                 <NodeDetailDrawer

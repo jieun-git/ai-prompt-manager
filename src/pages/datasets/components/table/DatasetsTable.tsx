@@ -24,7 +24,7 @@ const DatasetsTable = () => {
         key: string
         name: string
     } | null>(null)
-    const [openModal, setOpenModal] = useState<boolean>(false)
+    const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
 
     const handleClickEdit = () => {
         setSelectedRow(null)
@@ -45,8 +45,9 @@ const DatasetsTable = () => {
     }
 
     const handleClickDelete = () => {
-        setOpenModal(false)
+        setOpenDeleteModal(false)
         // Delete
+        // selectedRow.key 에 해당하는 row 삭제
 
         messageApi.open({
             type: 'success',
@@ -59,11 +60,11 @@ const DatasetsTable = () => {
     }
 
     const handleOpenDeleteModal = () => {
-        setOpenModal(true)
+        setOpenDeleteModal(true)
     }
 
     const handleCloseDeleteModal = () => {
-        setOpenModal(false)
+        setOpenDeleteModal(false)
     }
 
     const columns = [
@@ -153,9 +154,9 @@ const DatasetsTable = () => {
     return (
         <>
             {contextHolder}
-            {openModal && (
+            {openDeleteModal && (
                 <Modal
-                    open={openModal}
+                    open={openDeleteModal}
                     onOk={handleClickDelete}
                     onCancel={handleCloseDeleteModal}
                 >

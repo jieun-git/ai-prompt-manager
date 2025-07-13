@@ -4,6 +4,7 @@ import { NodeData } from '../table/PromptManageTable'
 import { S_FlexWrapper } from '../../../styles/Page.style'
 import PromptVersionDetail from '../../PromptVersionDetail'
 import PromptVersionList from '../../PromptVersionList'
+import { message } from 'antd'
 
 interface NodeDetailDrawerProps {
     openDrawer: boolean

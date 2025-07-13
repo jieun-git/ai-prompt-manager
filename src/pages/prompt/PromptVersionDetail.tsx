@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     S_FlexWrapper,
     S_PromptVersionDetail,
@@ -10,8 +10,9 @@ import {
     CopyOutlined,
     ThunderboltOutlined,
     ThunderboltFilled,
+    WarningOutlined,
 } from '@ant-design/icons'
-import { Tag, Descriptions, Button, Tooltip } from '../../components'
+import { Tag, Descriptions, Button, Tooltip, Modal } from '../../components'
 import { message } from 'antd'
 
 interface PromptVersionDetailProps {
@@ -26,11 +27,30 @@ const PromptVersionDetail = ({
     onChangeDefaultProduction,
 }: PromptVersionDetailProps) => {
     const [messageApi, contextHolder] = message.useMessage()
+    const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
 
     const { version, name, prompt } = versionDetail
 
-    const handleClickDelete = () => {
-        // prompt 삭제 -> 왼쪽 타임라인에서도 제거 되어야 함
+    const handleOpenDeleteModal = () => {
+        setOpenDeleteModal(true)
+    }
+
+    const handleCloseDeleteModal = () => {
+        setOpenDeleteModal(false)
+    }
+
+    const handleDeleteVersion = () => {
+        handleCloseDeleteModal()
+
+        // version 삭제 -> 왼쪽 타임라인에서도 제거 되어야 함
+        messageApi.open({
+            type: 'success',
+            content: 'Delete successful.',
+        })
+        // messageApi.open({
+        //     type: 'error',
+        //     content: 'Deletion failed.',
+        // })
     }
 
     const handleClickCopy = async (text: string) => {
@@ -88,6 +108,16 @@ const PromptVersionDetail = ({
 
     return (
         <>
+            {openDeleteModal && (
+                <Modal
+                    open={openDeleteModal}
+                    onOk={handleDeleteVersion}
+                    onCancel={handleCloseDeleteModal}
+                >
+                    <WarningOutlined /> Are you sure you want to delete ver.
+                    {version} {name} ?
+                </Modal>
+            )}
             {contextHolder}
             <S_PromptVersionDetail>
                 <S_PromptVersionDetailHeader>
@@ -115,7 +145,7 @@ const PromptVersionDetail = ({
                             </Tooltip>
                         </S_FlexWrapper>
                         <Tooltip title="Delete Prompt">
-                            <Button type="text" onClick={handleClickDelete}>
+                            <Button type="text" onClick={handleOpenDeleteModal}>
                                 <DeleteOutlined />
                             </Button>
                         </Tooltip>
