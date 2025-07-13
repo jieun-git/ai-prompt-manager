@@ -9,10 +9,17 @@ export const S_Select = styled(Select)<ExtendedSelectProps>`
         border: 1px solid var(--green-z-01);
         background: var(--background);
         color: var(--white);
+    }
 
-        &:hover {
-            border-color: var(--yellow-z-01) !important;
-        }
+    &&:hover .ant-select-selector,
+    &&.ant-select-focused .ant-select-selector,
+    &&.ant-select-open .ant-select-selector {
+        border-color: var(--yellow-z-01) !important;
+        box-shadow: none !important;
+    }
+
+    && .ant-select-selection-item {
+        color: var(--white);
     }
 
     && .ant-select-selection-placeholder {
