@@ -136,3 +136,11 @@ export const S_PromptVersionDetailContent = styled.div`
     flex-direction: column;
     gap: var(--spacing-04);
 `
+
+export const S_ChangeButton = styled.p`
+    cursor: pointer;
+    &:hover {
+        color: var(--yellow-z-01);
+    }
+    color: var(--blue-z-03);
+`
