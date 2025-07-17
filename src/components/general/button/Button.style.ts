@@ -4,7 +4,7 @@ import { ExtendButtonProps } from './Button'
 
 const S_Button = styled(Button)<ExtendButtonProps>`
     border-radius: var(--radius-01);
-    width: ${({ fixedSize }) => (fixedSize ? '10rem' : 'auto')};
+    width: ${({ fixedSize }) => (fixedSize ? '10rem' : '100%')};
 
     // default
     &.ant-btn {
