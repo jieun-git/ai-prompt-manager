@@ -1,2 +1,5 @@
-# ai-prompt-manager
-AI Prompt Manager
+# AI Prompt Manager
+
+### `npm start`
+
+
