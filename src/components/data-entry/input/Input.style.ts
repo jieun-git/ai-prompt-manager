@@ -5,35 +5,73 @@ import { ExtendedTextAreaProps } from './Input'
 export const S_Input = styled(Input)`
     width: ${({ width }) => width} !important;
 
-    background: var(--background);
-    border: 1px solid var(--green-z-01);
-    color: var(--white);
-
-    &:focus,
-    &.ant-input-focused {
+    &.ant-input {
         background: var(--background);
-        border: 1px solid var(--yellow-z-01);
-    }
-
-    &::placeholder {
-        color: var(--text-placeholder);
-        opacity: 1;
-    }
-
-    &:hover {
-        background: var(--background);
-        border: 1px solid var(--yellow-z-01);
-    }
-
-    &.ant-input-disabled,
-    input[disabled] {
-        background-color: var(--disabled-input) !important;
         border: 1px solid var(--green-z-01);
-        color: var(--text-disabled);
+        color: var(--white);
+
+        &:hover,
+        &:focus {
+            background: var(--background);
+            border-color: var(--yellow-z-01);
+            box-shadow: none;
+        }
 
         &::placeholder {
+            color: var(--text-placeholder);
+        }
+
+        &:disabled {
+            background: var(--disabled-input);
+            border-color: var(--green-z-01);
             color: var(--text-disabled);
-            opacity: 1;
+
+            &::placeholder {
+                color: var(--text-disabled);
+            }
+        }
+    }
+
+    &.ant-input-affix-wrapper {
+        background: var(--background) !important;
+        border: 1px solid var(--green-z-01);
+        color: var(--white);
+
+        &:hover {
+            background: var(--background) !important;
+            border-color: var(--yellow-z-01);
+        }
+
+        &.ant-input-affix-wrapper-focused {
+            background: var(--background) !important;
+            border-color: var(--yellow-z-01);
+            box-shadow: none;
+        }
+
+        .ant-input-prefix {
+            color: var(--white);
+        }
+
+        input {
+            background: transparent;
+            color: var(--white);
+
+            &::placeholder {
+                color: var(--text-placeholder);
+            }
+
+            &:focus {
+                background: transparent;
+            }
+        }
+
+        &.ant-input-affix-wrapper-disabled {
+            background: var(--disabled-input) !important;
+
+            input {
+                color: var(--text-disabled);
+                background: var(--disabled-input);
+            }
         }
     }
 `
