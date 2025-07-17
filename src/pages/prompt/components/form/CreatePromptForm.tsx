@@ -104,18 +104,14 @@ const CreatePromptForm = () => {
                                                 />
                                             </Form.Item>
                                             <Form.Item>
-                                                <S_FlexWrapper>
-                                                    <Button
-                                                        type="text"
-                                                        onClick={() =>
-                                                            remove(name)
-                                                        }
-                                                    >
-                                                        <Tooltip title="Remove">
-                                                            <MinusCircleOutlined />
-                                                        </Tooltip>
-                                                    </Button>
-                                                </S_FlexWrapper>
+                                                <Button
+                                                    type="text"
+                                                    onClick={() => remove(name)}
+                                                >
+                                                    <Tooltip title="Remove">
+                                                        <MinusCircleOutlined />
+                                                    </Tooltip>
+                                                </Button>
                                             </Form.Item>
                                         </S_FlexWrapper>
                                     </>
@@ -123,6 +119,7 @@ const CreatePromptForm = () => {
                             )}
                             <Form.Item width="100%">
                                 <Button
+                                    extendedSize
                                     onClick={() => add({ type: 'user' })}
                                     disabled={fields.length > 1}
                                 >

@@ -4,6 +4,7 @@ import S_Button from './Button.style'
 
 export interface ExtendButtonProps extends ButtonProps {
     fixedSize?: boolean
+    extendedSize?: boolean
 }
 
 const Button = ({ ...props }: ExtendButtonProps) => {
